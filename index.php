@@ -8,14 +8,15 @@ $page = 1;
 $perPage = 2;
 $total = $productModel->totalProducts();
 
-
+if (isset($_SESSION['username'])) {
+    header("location: http://localhost/final_test_be1/login.php");
+}
 
 if (isset($_GET['category_id'])) {
     $category_id = $_GET['category_id'];
     $page = isset($_GET['page']) ? $_GET['page'] : $page;
     $products = $productModel->getProductsByCategoryID($category_id, $page, $perPage);
     $total = $productModel->totalProductsByCategoryID($category_id);
-
 
 } else if (isset($_GET['search'])) {
     $keyword = $_GET['search'];

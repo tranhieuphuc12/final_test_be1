@@ -25,12 +25,13 @@
     <nav aria-label="Page navigation example">
         <ul class="pagination">
             <?php
-            $pages = ceil($total / $perPage);    
+            $pages = ceil($total / $perPage); 
+            $href ="";   
             if (isset($_GET['category_id'])) {
                 $href = "&category_id=".$_GET['category_id'];
             }elseif (isset($_GET['search'])) {
                 $href = "&search=".$_GET['search'];
-            }        
+            }     
             for ($i = 1; $i <= $pages; $i++):                                                             
                 ?>
                 <li class="page-item"><a class="page-link" href="?page=<?php echo $i . $href?>">
